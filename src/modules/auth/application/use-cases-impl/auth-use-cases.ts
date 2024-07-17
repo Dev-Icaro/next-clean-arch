@@ -1,8 +1,8 @@
 import { inject, injectable } from "inversify";
-import ICredentialsDTO from "../../domain/dtos/ICredentialsDTO";
-import IAuthUseCases from "../../domain/use-cases/IAuthUseCases";
-import type IAuthRepository from "../../infra/interfaces/IAuthRepository";
-import LoginSchema from "../../presentation/schemas/LoginSchema";
+import ICredentialsDTO from "../../domain/dtos/credentials.dto";
+import IAuthUseCases from "../../domain/use-cases/auth-use-cases.interface";
+import type IAuthRepository from "../../infra/interfaces/auth-repository.interface";
+import LoginSchema from "../schemas/login-schema";
 import { TYPES } from "@/common/di/types";
 
 export default

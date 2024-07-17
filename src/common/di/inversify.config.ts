@@ -1,8 +1,8 @@
 import { Container } from "inversify";
 import { TYPES } from "./types";
-import IAuthUseCases from "@/modules/auth/domain/use-cases/IAuthUseCases";
-import AuthUseCasesImpl from "@/modules/auth/application/use-cases-impl/AuthUseCasesImpl";
-import AuthRepositoryImpl from "@/modules/auth/infra/repositories/AuthRepositoryImpl";
+import IAuthUseCases from "@/modules/auth/domain/use-cases/auth-use-cases.interface";
+import AuthUseCasesImpl from "@/modules/auth/application/use-cases-impl/auth-use-cases";
+import AuthRepositoryImpl from "@/modules/auth/infra/repositories/auth-repository";
 
 const container = new Container();
 

@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
-import ICredentialsDTO from "../../domain/dtos/ICredentialsDTO";
-import IAuthRepository from "../interfaces/IAuthRepository";
+import ICredentialsDTO from "../../domain/dtos/credentials.dto";
+import IAuthRepository from "../interfaces/auth-repository.interface";
 import { coreApi } from "@/common/api/core-api";
 
 export default

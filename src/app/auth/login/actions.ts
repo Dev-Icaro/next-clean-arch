@@ -2,8 +2,8 @@
 
 import { container } from "@/common/di/inversify.config";
 import { TYPES } from "@/common/di/types";
-import IAuthUseCases from "@/modules/auth/domain/use-cases/IAuthUseCases";
-import LoginSchema from "@/modules/auth/presentation/schemas/LoginSchema";
+import IAuthUseCases from "@/modules/auth/domain/use-cases/auth-use-cases.interface";
+import LoginSchema from "@/modules/auth/application/schemas/login-schema";
 import * as z from "zod";
 
 export const loginAction = async (data: z.infer<typeof LoginSchema>) => {

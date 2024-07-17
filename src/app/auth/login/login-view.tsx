@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/common/components/ui/button";
 import {
   FormField,
@@ -9,27 +7,13 @@ import {
   Form,
 } from "@/common/components/ui/form";
 import { Input } from "@/common/components/ui/input";
-import { useForm } from "react-hook-form";
-import { useLoginView } from "./use-login-view";
-import LoginSchema from "@/modules/auth/presentation/schemas/LoginSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 interface LoginViewProps {
   form: any;
-  handleSingIn: any;
+  onSignIn: any;
 }
 
-const LoginView = () => {
-  const form = useForm({
-    resolver: zodResolver(LoginSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-
-  const { onSignIn } = useLoginView();
-
+const LoginView = ({ form, onSignIn }: LoginViewProps) => {
   return (
     <main className="h-full flex items-center justify-center">
       <div>
