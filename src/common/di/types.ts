@@ -1,4 +1,5 @@
 export const TYPES = {
-  IAuthUseCases: Symbol.for("IAuthUseCases"),
+  IAuthenticateUserUseCase: Symbol.for("IAuthenticateUserUseCase"),
   IAuthRepository: Symbol.for("IAuthRepository"),
+  IAuthPresenter: Symbol.for("IAuthPresenter"),
 };

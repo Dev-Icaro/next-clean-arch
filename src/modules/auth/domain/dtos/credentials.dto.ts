@@ -1,4 +1,4 @@
-export default interface ICredentialsDTO {
+export default interface CredentialsDTO {
   email: string;
   password: string;
 }
