@@ -10,11 +10,11 @@ import AuthenticateUserUseCase from "@/modules/auth/application/use-cases-impl/a
 import IAuthPresenter from "@/modules/auth/presentation/presenters/auth-presenter.interface";
 
 const initializeModule = (bind: interfaces.Bind) => {
-  bind<IAuthRepository>(TYPES.IAuthRepository).toConstantValue(applyDependencies(AuthRepositoryImpl, []));
+  bind<IAuthRepository>(TYPES.IAuthRepository).to(AuthRepositoryImpl).inSingletonScope();
 
-  bind<IAuthenticateUserUseCase>(TYPES.IAuthenticateUserUseCase).toConstantValue(
-    applyDependencies(AuthenticateUserUseCase, [TYPES.IAuthRepository])
-  );
+  bind<IAuthenticateUserUseCase>(TYPES.IAuthenticateUserUseCase)
+    .to(AuthenticateUserUseCase)
+    .inSingletonScope();
 
   bind<IAuthPresenter>(TYPES.IAuthPresenter).toConstantValue(
     applyDependencies(AuthPresenter, [TYPES.IAuthenticateUserUseCase])
