@@ -4,7 +4,7 @@ import { Button } from "@/common/components/ui/button";
 import { FormField, FormItem, FormLabel, FormControl } from "@/common/components/ui/form";
 import { Input } from "@/common/components/ui/input";
 import { Form } from "@/common/components/ui/form";
-import { useLoginForm } from "./login-form.hooks";
+import { useLoginForm } from "./use-login-form";
 
 const LoginForm = () => {
   const { form, onSignIn } = useLoginForm();

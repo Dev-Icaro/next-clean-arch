@@ -3,7 +3,7 @@ import { injectable, inject } from "inversify";
 import CredentialsDTO from "../../domain/dtos/credentials.dto";
 import { Authentication } from "../../domain/models/authentication";
 import IAuthenticateUserUseCase from "../../domain/use-cases/auth-use-cases.interface";
-import type IAuthRepository from "@/modules/auth/infra/interfaces/auth-repository.interface";
+import type IAuthRepository from "@/modules/auth/domain/repositories/auth-repository.interface";
 
 @injectable()
 export default class AuthenticateUserUseCase implements IAuthenticateUserUseCase {

@@ -1,8 +1,8 @@
-import LoginSchema from "@/modules/auth/application/schemas/login-schema";
+import LoginSchema from "@/modules/auth/presentation/schemas/login-schema";
 import CredentialsDTO from "@/modules/auth/domain/dtos/credentials.dto";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useAuthentication } from "@/modules/auth/application/hooks/use-authentication";
+import { useAuthentication } from "@/modules/auth/presentation/hooks/use-authentication";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { useRouter } from "next/navigation";
 

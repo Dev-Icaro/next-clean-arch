@@ -1,5 +1,5 @@
 import CredentialsDTO from "@/modules/auth/domain/dtos/credentials.dto";
-import IAuthRepository from "../interfaces/auth-repository.interface";
+import IAuthRepository from "../../domain/repositories/auth-repository.interface";
 import { Authentication } from "@/modules/auth/domain/models/authentication";
 import { coreApi } from "@/common/api/core-api";
 import { injectable } from "inversify";

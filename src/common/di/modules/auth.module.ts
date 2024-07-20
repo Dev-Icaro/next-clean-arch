@@ -1,13 +1,10 @@
 import { ContainerModule, interfaces } from "inversify";
 import { TYPES } from "../types";
-import { applyDependencies } from "@/common/utils/ioc.utils";
-import { AuthPresenter } from "@/modules/auth/presentation/presenters/auth-presenter";
 
-import IAuthRepository from "@/modules/auth/infra/interfaces/auth-repository.interface";
-import AuthRepositoryImpl from "@/modules/auth/infra/repositories/auth-repository";
+import IAuthRepository from "@/modules/auth/domain/repositories/auth-repository.interface";
+import AuthRepositoryImpl from "@/modules/auth/data/repositories/auth-repository";
 import IAuthenticateUserUseCase from "@/modules/auth/domain/use-cases/auth-use-cases.interface";
-import AuthenticateUserUseCase from "@/modules/auth/application/use-cases-impl/authenticate-user-use-case";
-import IAuthPresenter from "@/modules/auth/presentation/presenters/auth-presenter.interface";
+import AuthenticateUserUseCase from "@/modules/auth/application/use-cases/authenticate-user-use-case";
 
 const initializeModule = (bind: interfaces.Bind) => {
   bind<IAuthRepository>(TYPES.IAuthRepository).to(AuthRepositoryImpl).inSingletonScope();
@@ -15,11 +12,6 @@ const initializeModule = (bind: interfaces.Bind) => {
   bind<IAuthenticateUserUseCase>(TYPES.IAuthenticateUserUseCase)
     .to(AuthenticateUserUseCase)
     .inSingletonScope();
-
-  bind<IAuthPresenter>(TYPES.IAuthPresenter).toConstantValue(
-    applyDependencies(AuthPresenter, [TYPES.IAuthenticateUserUseCase])
-  );
 };
 
-/** @scope src/ioc  */
 export const AuthModule = new ContainerModule(initializeModule);

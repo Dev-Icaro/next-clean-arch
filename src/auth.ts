@@ -2,8 +2,9 @@ import "reflect-metadata";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import ICredentialsDTO from "@/modules/auth/domain/dtos/credentials.dto";
-
-import { authenticate } from "./app/(auth)/auth.actions";
+import { getInjection } from "./common/di/inversify.config";
+import IAuthenticateUserUseCase from "./modules/auth/domain/use-cases/auth-use-cases.interface";
+import { TYPES } from "./common/di/types";
 
 export const {
   handlers: { GET, POST },
@@ -18,9 +19,12 @@ export const {
         password: { label: "password", type: "password" },
       },
       async authorize(credentials) {
+        const authenticateUserUseCase = getInjection<IAuthenticateUserUseCase>(
+          TYPES.IAuthenticateUserUseCase
+        );
         const { email, password } = credentials as ICredentialsDTO;
 
-        const { accessToken } = await authenticate({
+        const { accessToken } = await authenticateUserUseCase.execute({
           email,
           password,
         });
