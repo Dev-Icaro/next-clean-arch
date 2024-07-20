@@ -6,7 +6,7 @@ import { signIn } from "@/auth";
 export const login = async (formData: CredentialsDTO) => {
   const { email, password } = formData;
 
-  await signIn("credentials", {
+  return signIn("credentials", {
     email,
     password,
     redirect: false,

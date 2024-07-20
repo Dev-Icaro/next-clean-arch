@@ -1,24 +1,15 @@
-import { signIn, signOut } from "@/auth";
+import { signOut } from "@/auth";
 import CredentialsDTO from "../../domain/dtos/credentials.dto";
+import { login as loginAction } from "../actions/login";
 
 type UseAuthentication = {
-  logIn: (input: CredentialsDTO) => Promise<{ ok: boolean }>;
+  logIn: (input: CredentialsDTO) => Promise<void>;
   logOut: () => void;
 };
 
 export const useAuthentication = (): UseAuthentication => {
   const logIn = async ({ email, password }: CredentialsDTO) => {
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (res) {
-      return { ok: true };
-    } else {
-      return { ok: false };
-    }
+    await loginAction({ email, password });
   };
 
   const logOut = async () => {

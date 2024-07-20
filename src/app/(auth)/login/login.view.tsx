@@ -1,4 +1,4 @@
-import LoginForm from "../components/login-form/login-form";
+import LoginForm from "../../../modules/auth/presentation/components/login-form/login-form";
 
 const LoginView = () => {
   return (
